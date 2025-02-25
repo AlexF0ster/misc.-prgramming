@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#sudoku-board {
+    display: inline-block;
+    margin: 20px auto;
+}
+
+.sudoku-row {
+    display: flex;
+}
+
+.sudoku-cell {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    margin: 2px;
+}
+
+.sudoku-cell[readonly] {
+    background-color: #f0f0f0;
+}
+
+.sudoku-cell.error {
+    background-color: #ffcccc;
+}

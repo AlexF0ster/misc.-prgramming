@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Sudoku</h1>
+    <form method="POST">
+        <div id="sudoku-board">
+            {% for r in range(9) %}
+                <div class="sudoku-row">
+                    {% for c in range(9) %}
+                        <input type="text" name="cell-{{ r }}-{{ c }}" class="sudoku-cell {% if (r, c) in errors %}error{% endif %}" value="{{ board[r][c] if board[r][c] != 0 else '' }}" {% if board[r][c] != 0 %}readonly{% endif %}>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <button type="submit" name="action" value="check">Check Errors</button>
+        <button type="submit" name="action" value="solve">Solve</button>
+    </form>
+</body>
+</html>
